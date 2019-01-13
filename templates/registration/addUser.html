@@ -1,0 +1,26 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<form class="" action="" method="post">
+  {% csrf_token %}
+
+
+
+
+        {% for fild in form %}
+          <div class="form-group">
+            <label for=""> {{ fild.label }} </label>
+            {{ fild }}
+
+            {% if fild.errors %}
+              <p>{{ fild.errors }}</p>
+              {% endif %}
+          </div>  
+    {% endfor %}
+
+  <button type="submit" >Зарегистрироваться</button>
+
+</form>
+
+{% endblock %}

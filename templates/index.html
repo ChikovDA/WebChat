@@ -7,22 +7,23 @@
 
    {% if user.is_authenticated %}
      <p>Добро пожаловать,<em> {{ user.get_username }}</em></p>
-     <p>Помимо Вас на сегодня зарегистировано еще {{ total_users}} Пользователей</p>   
+     <p>Помимо Вас на сегодня зарегистировано еще {{ total_users}} Пользователей</p>
    {% else %}
-     <p>Добро пожаловать, авторизуйтесь или зарегистрируйтесь</p>  
-     <p>Нас уже {{ total_users}} !!</p>    
-   {% endif %} 
+     <p>Добро пожаловать, авторизуйтесь или зарегистрируйтесь</p>
+     <p>Нас уже {{ total_users}} !!</p>
+   {% endif %}
   </ul>
 
 <h2>Доступные действия:</h2>
    {% if user.is_authenticated %}
   <p></p>
   <ul>
-   <li><strong><a href="{% url 'logout'%}?next={{request.path}}">Перейти в чат</a></strong></li>   
-   <li><strong><a href="{% url 'logout'%}?next={{request.path}}">Выйти</a></strong></li>  
+   <li><strong><a href="{% url 'logout'%}?next={{request.path}}">Перейти в чат</a></strong></li>
+   <li><strong><a href="{% url 'logout'%}?next={{request.path}}">Выйти</a></strong></li>
    {% else %}
-   <li><strong><a href="{% url 'login'%}?next={{request.path}}">Войти</a></strong></li>   
-  {% endif %} 
+   <li><strong><a href="registration">Регистрация</a></strong></li>
+   <li><strong><a href="{% url 'login'%}?next={{request.path}}">Войти</a></strong></li>
+  {% endif %}
   </ul>
 
 {% endblock %}
